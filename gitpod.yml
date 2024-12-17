@@ -1,0 +1,16 @@
+tasks:
+  - init: |
+      sudo apt update
+      sudo apt install -y libgl1-mesa-dev libgles2-mesa-dev libgstreamer1.0-dev \
+                          gstreamer1.0-plugins-base gstreamer1.0-plugins-good \
+                          gstreamer1.0-plugins-bad gstreamer1.0-plugins-ugly \
+                          gstreamer1.0-libav gstreamer1.0-tools gstreamer1.0-x \
+                          python3-dev build-essential libssl-dev libffi-dev
+      python3 -m venv .venv
+      . .venv/bin/activate
+      pip install --upgrade pip wheel setuptools
+      pip install kivy kivy-deps.gstreamer kivy-deps.sdl2 kivy-deps.angle
+    command: . .venv/bin/activate
+vscode:
+  extensions:
+    - ms-python.python
